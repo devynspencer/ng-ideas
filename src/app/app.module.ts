@@ -8,6 +8,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppRoutingModule } from '@app/app-routing.module';
 import { AppComponent } from '@app/app.component';
 import { AuthService } from '@app/services/auth.service';
+import { ApiService } from '@app/services/api.service';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { AuthService } from '@app/services/auth.service';
   ],
   providers: [
     AuthService,
+    ApiService,
   ],
   bootstrap: [AppComponent]
 })
