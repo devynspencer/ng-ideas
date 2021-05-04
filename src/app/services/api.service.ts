@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { environment } from '@env/environment';
 import { Idea } from '@app/models/idea.model';
+import { Comment } from '@app/models/comment.model';
 import { User } from '@app/models/user.model';
 import { AuthService } from '@app/services/auth.service';
 
@@ -73,5 +74,29 @@ export class ApiService {
 
   unbookmarkIdea(id: string): Observable<User> {
     return this.request('DELETE', `ideas/${id}/bookmark`);
+  }
+
+  getCommentsByIdea(ideaId: string, page?: string): Observable<Comment[]> {
+    const endpoint = page ? `comments/idea/${ideaId}?page=${page}` : `comments/idea/${ideaId}`;
+
+    return this.request('GET', endpoint);
+  }
+
+  getCommentsByUser(userId: string, page?: string): Observable<Comment[]> {
+    const endpoint = page ? `comments/user/${userId}?page=${page}` : `comments/user/${userId}`;
+
+    return this.request('GET', endpoint);
+  }
+
+  getComment(id: string): Observable<Comment> {
+    return this.request('GET', `comments/${id}`);
+  }
+
+  createComment(ideaId: string, data): Observable<Comment> {
+    return this.request('POST', `comments/idea/${ideaId}`, data);
+  }
+
+  deleteComment(id: string): Observable<Comment> {
+    return this.request('DELETE', `comments/${id}`);
   }
 }
