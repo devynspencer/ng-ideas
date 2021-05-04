@@ -10,3 +10,9 @@ export interface Idea {
   upvotes?: number;
   downvotes?: number;
 }
+
+export interface IdeaDto {
+  id?: string;
+  idea: string;
+  description: string;
+}

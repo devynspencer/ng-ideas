@@ -3,3 +3,7 @@ export interface Comment {
   created: Date;
   body: string;
 }
+
+export interface CommentDto {
+  comment: string;
+}
