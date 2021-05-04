@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { environment } from '@env/environment';
+import { Idea } from '@app/models/idea.model';
 import { User } from '@app/models/user.model';
 import { AuthService } from '@app/services/auth.service';
 
@@ -28,5 +29,49 @@ export class ApiService {
 
   getUser(username: string): Observable<User> {
     return this.request('GET', `users/${username}`);
+  }
+
+  getIdeas(page?: string): Observable<Idea[]> {
+    const endpoint = page ? `ideas?page=${page}` : 'ideas';
+
+    return this.request('GET', endpoint);
+  }
+
+  getLatestIdeas(page?: string): Observable<Idea[]> {
+    const endpoint = page ? `ideas/latest?page=${page}` : 'ideas/latest';
+
+    return this.request('GET', endpoint);
+  }
+
+  getIdea(id: string): Observable<Idea> {
+    return this.request('GET', `ideas/${id}`);
+  }
+
+  createIdea(data): Observable<Idea> {
+    return this.request('POST', 'ideas', data);
+  }
+
+  updateIdea(id: string, data): Observable<Idea> {
+    return this.request('PUT', `ideas/${id}`, data);
+  }
+
+  deleteIdea(id: string): Observable<Idea> {
+    return this.request('DELETE', `ideas/${id}`);
+  }
+
+  upvoteIdea(id: string): Observable<Idea> {
+    return this.request('POST', `ideas/${id}/upvote`);
+  }
+
+  downvoteIdea(id: string): Observable<Idea> {
+    return this.request('POST', `ideas/${id}/downvote`);
+  }
+
+  bookmarkIdea(id: string): Observable<User> {
+    return this.request('POST', `ideas/${id}/bookmark`);
+  }
+
+  unbookmarkIdea(id: string): Observable<User> {
+    return this.request('DELETE', `ideas/${id}/bookmark`);
   }
 }
