@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { AppState } from '@app/store/app-store.module';
-import { AddError } from './store/actions/error.actions';
+import { AddError } from '@app/store/actions/error.actions';
 
 @Component({
   selector: 'app-root',

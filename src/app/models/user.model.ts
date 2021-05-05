@@ -1,4 +1,4 @@
-import { Idea } from './idea.model';
+import { Idea } from '@app/models/idea.model';
 
 export interface User {
   id: string;
