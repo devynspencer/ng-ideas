@@ -21,6 +21,5 @@ export const reducers: ActionReducerMap<AppState> = {
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument(),
   ],
-  declarations: []
 })
 export class AppStoreModule { }
