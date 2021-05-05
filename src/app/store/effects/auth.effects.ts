@@ -12,7 +12,7 @@ import {
   SetCurrentUser,
   SetInitialUser,
 } from '@app/store/actions/auth.actions';
-import { RemoveError } from '@app/store/actions/error.actions';
+import { AddError, RemoveError } from '@app/store/actions/error.actions';
 import { AppState } from '@app/store/app-store.module';
 
 @Injectable()
@@ -30,7 +30,7 @@ export class AuthEffects {
     mergeMap((action: SetInitialUser) =>
       this.authService.whoami().pipe(
         map((user) => new SetCurrentUser(user)),
-        catchError((err) => of(err))
+        catchError((err) => of(new AddError(err)))
       )
     )
   );
@@ -42,7 +42,7 @@ export class AuthEffects {
     mergeMap((action: LoginUser) =>
       this.authService.login(action.payload).pipe(
         map((user) => new SetCurrentUser(user)),
-        catchError((err) => of(err))
+        catchError((err) => of(new AddError(err)))
       )
     )
   );
@@ -54,7 +54,7 @@ export class AuthEffects {
     mergeMap((action: RegisterUser) =>
       this.authService.register(action.payload).pipe(
         map((user) => new SetCurrentUser(user)),
-        catchError((err) => of(err))
+        catchError((err) => of(new AddError(err)))
       )
     )
   );
