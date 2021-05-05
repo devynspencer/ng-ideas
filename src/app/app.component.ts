@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { AppState } from '@app/store/app-store.module';
-import { AddError } from '@app/store/actions/error.actions';
+import { LoginUser } from './store/actions/auth.actions';
+import { AuthDto } from './models/auth.model';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,6 @@ export class AppComponent implements OnInit {
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
-    this.store.dispatch(new AddError({ error: 'message' }));
+    this.store.dispatch(new LoginUser({ username: 'username', password: 'password' } as AuthDto));
   }
 }
