@@ -8,7 +8,7 @@ import { AuthDto } from '@app/models/auth.model';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
   title = 'ng-ideas';
@@ -16,6 +16,8 @@ export class AppComponent implements OnInit {
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
-    this.store.dispatch(new LoginUser({ username: 'username', password: 'password' } as AuthDto));
+    this.store.dispatch(
+      new LoginUser({ username: 'username', password: 'password' } as AuthDto)
+    );
   }
 }
