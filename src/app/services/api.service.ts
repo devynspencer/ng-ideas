@@ -9,17 +9,23 @@ import { User } from '@app/models/user.model';
 import { AuthService } from '@app/services/auth.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
-
   private api = `${environment.api_server_url}/api`;
 
-  constructor(private http: HttpClient, private auth: AuthService) { }
+  constructor(private http: HttpClient, private auth: AuthService) {}
 
-  private request(method: string, endpoint: string, body?: any): Observable<any> {
+  private request(
+    method: string,
+    endpoint: string,
+    body?: any
+  ): Observable<any> {
     const url = `${this.api}/${endpoint}`;
-    return this.http.request(method, url, { body, headers: { authorization: `Bearer: ${this.auth.token}` } });
+    return this.http.request(method, url, {
+      body,
+      headers: { authorization: `Bearer: ${this.auth.token}` },
+    });
   }
 
   getUsers(page?: string): Observable<User[]> {
@@ -77,13 +83,17 @@ export class ApiService {
   }
 
   getCommentsByIdea(ideaId: string, page?: string): Observable<Comment[]> {
-    const endpoint = page ? `comments/idea/${ideaId}?page=${page}` : `comments/idea/${ideaId}`;
+    const endpoint = page
+      ? `comments/idea/${ideaId}?page=${page}`
+      : `comments/idea/${ideaId}`;
 
     return this.request('GET', endpoint);
   }
 
   getCommentsByUser(userId: string, page?: string): Observable<Comment[]> {
-    const endpoint = page ? `comments/user/${userId}?page=${page}` : `comments/user/${userId}`;
+    const endpoint = page
+      ? `comments/user/${userId}?page=${page}`
+      : `comments/user/${userId}`;
 
     return this.request('GET', endpoint);
   }

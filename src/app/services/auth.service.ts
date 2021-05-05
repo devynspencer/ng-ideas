@@ -7,13 +7,12 @@ import { AuthDto, AuthType } from '@app/models/auth.model';
 import { User } from '@app/models/user.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
   private api = `${environment.api_server_url}/auth`;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   login(data: AuthDto): Observable<User> {
     return this.auth('login', data);
@@ -24,7 +23,9 @@ export class AuthService {
   }
 
   whoami(): Observable<User> {
-    return this.http.get<User>(`${this.api}/whoami`, { headers: { authorization: `Bearer ${this.token}` } });
+    return this.http.get<User>(`${this.api}/whoami`, {
+      headers: { authorization: `Bearer ${this.token}` },
+    });
   }
 
   get token(): string {
