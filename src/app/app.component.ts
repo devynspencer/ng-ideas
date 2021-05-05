@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { AppState } from '@app/store/app-store.module';
-import { LoginUser } from './store/actions/auth.actions';
-import { AuthDto } from './models/auth.model';
+import { LoginUser } from '@app/store/actions/auth.actions';
+import { AuthDto } from '@app/models/auth.model';
 
 @Component({
   selector: 'app-root',
