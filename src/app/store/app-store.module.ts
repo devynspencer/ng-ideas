@@ -22,4 +22,4 @@ export const reducers: ActionReducerMap<AppState> = {
     StoreDevtoolsModule.instrument(),
   ],
 })
-export class AppStoreModule { }
+export class AppStoreModule {}
