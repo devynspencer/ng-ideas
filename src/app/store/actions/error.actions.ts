@@ -1,8 +1,8 @@
 import { Action } from '@ngrx/store';
 
 export enum ErrorActionTypes {
-  ADD_ERROR = '[ERROR] Add Error',
-  REMOVE_ERROR = '[ERROR] Remove Error',
+  ADD_ERROR = '[ERROR] Add error',
+  REMOVE_ERROR = '[ERROR] Remove error',
 }
 
 export class AddError implements Action {
