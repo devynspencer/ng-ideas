@@ -29,4 +29,8 @@ export class SetInitialUser implements Action {
   readonly type = AuthActionTypes.SET_INITIAL_USER;
 }
 
-export type AuthAction = LoginUser | RegisterUser | SetCurrentUser | SetInitialUser;
+export type AuthAction =
+  | LoginUser
+  | RegisterUser
+  | SetCurrentUser
+  | SetInitialUser;
