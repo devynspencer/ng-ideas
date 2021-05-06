@@ -32,7 +32,7 @@ export class AuthEffects {
     mergeMap((action: SetInitialUser) =>
       this.authService.whoami().pipe(
         map((user) => new SetCurrentUser(user)),
-        catchError((err) => of(new AddError(err)))
+        catchError((err) => of(new AddError(err.error)))
       )
     )
   );
@@ -51,7 +51,7 @@ export class AuthEffects {
             })
         ),
         map((user) => new SetCurrentUser(user)),
-        catchError((err) => of(new AddError(err)))
+        catchError((err) => of(new AddError(err.error)))
       )
     )
   );
@@ -63,7 +63,7 @@ export class AuthEffects {
     mergeMap((action: RegisterUser) =>
       this.authService.register(action.payload).pipe(
         map((user) => new SetCurrentUser(user)),
-        catchError((err) => of(new AddError(err)))
+        catchError((err) => of(new AddError(err.error)))
       )
     )
   );
