@@ -5,6 +5,8 @@
 export const environment = {
   production: false,
   api_server_url: 'http://localhost:3000',
+  app_name: 'ideas',
+  app_description: 'Organize your ideas!',
 };
 
 /*
