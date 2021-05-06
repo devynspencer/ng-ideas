@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { AppState } from '@app/store/app-store.module';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { OpenSnackBar } from '@app/store/actions';
 
 @Component({
@@ -12,7 +13,10 @@ import { OpenSnackBar } from '@app/store/actions';
 export class AppComponent implements OnInit {
   title = 'ng-ideas';
 
-  constructor(private store: Store<AppState>) {}
+  constructor(
+    private store: Store<AppState>,
+    private snackBarService: MatSnackBar
+  ) {}
 
   ngOnInit(): void {
     this.store
@@ -25,5 +29,14 @@ export class AppComponent implements OnInit {
           })
         );
       });
+  }
+
+  showError(err): void {
+    if (err) {
+      this.snackBarService.open(
+        err.error?.message.substring(0, 47),
+        `Error ${err.error?.code}`
+      );
+    }
   }
 }

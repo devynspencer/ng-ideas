@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { EffectsModule } from '@ngrx/effects';
 import { ActionReducerMap, StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { AuthEffects, SnackBarEffects } from '@app/store/effects';
 import {
@@ -35,5 +36,6 @@ export const reducers: ActionReducerMap<AppState> = {
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument(),
   ],
+  providers: [MatSnackBar],
 })
 export class AppStoreModule {}
