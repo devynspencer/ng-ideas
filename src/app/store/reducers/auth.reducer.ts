@@ -1,4 +1,4 @@
-import { User } from '@app/models/user.model';
+import { User } from '@app/models';
 import { AuthAction, AuthActionTypes } from '@app/store/actions/auth.actions';
 
 export interface AuthState {

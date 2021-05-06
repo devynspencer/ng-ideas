@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { environment } from '@env/environment';
-import { Idea } from '@app/models/idea.model';
-import { Comment } from '@app/models/comment.model';
-import { User } from '@app/models/user.model';
+import { Comment, Idea, User } from '@app/models';
 import { AuthService } from '@app/services/auth.service';
 
 @Injectable({

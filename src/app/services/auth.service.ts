@@ -4,8 +4,7 @@ import { Observable, of } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
 
 import { environment } from '@env/environment';
-import { AuthDto, AuthType } from '@app/models/auth.model';
-import { User } from '@app/models/user.model';
+import { AuthDto, AuthType, User } from '@app/models';
 
 @Injectable({
   providedIn: 'root',
