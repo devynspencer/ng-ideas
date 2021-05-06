@@ -1,7 +1,4 @@
-import {
-  ErrorActionTypes,
-  ErrorAction,
-} from '@app/store/actions/error.actions';
+import { ErrorActionTypes, ErrorAction } from '@app/store/actions';
 
 export interface ErrorState {
   error: any;

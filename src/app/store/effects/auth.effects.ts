@@ -6,15 +6,16 @@ import { catchError, mergeMap, map, tap } from 'rxjs/operators';
 
 import { AuthService } from '@app/services';
 import {
+  AddError,
   AuthActionTypes,
   LoginUser,
+  OpenSnackBar,
   RegisterUser,
+  RemoveError,
   SetCurrentUser,
   SetInitialUser,
-} from '@app/store/actions/auth.actions';
-import { AddError, RemoveError } from '@app/store/actions/error.actions';
+} from '@app/store/actions';
 import { AppState } from '@app/store/app-store.module';
-import { OpenSnackBar } from '@app/store/actions/snackbar.actions';
 
 @Injectable()
 export class AuthEffects {
@@ -49,7 +50,8 @@ export class AuthEffects {
               action: 'Success',
             })
         ),
-        map((user) => new SetCurrentUser(user))
+        map((user) => new SetCurrentUser(user)),
+        catchError((err) => of(new AddError(err)))
       )
     )
   );

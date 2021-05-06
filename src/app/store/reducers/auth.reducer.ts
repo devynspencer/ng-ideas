@@ -1,5 +1,5 @@
 import { User } from '@app/models';
-import { AuthAction, AuthActionTypes } from '@app/store/actions/auth.actions';
+import { AuthAction, AuthActionTypes } from '@app/store/actions';
 
 export interface AuthState {
   user: User | null;

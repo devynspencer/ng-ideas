@@ -1,7 +1,4 @@
-import {
-  SnackBarAction,
-  SnackBarActionTypes,
-} from '@app/store/actions/snackbar.actions';
+import { SnackBarAction, SnackBarActionTypes } from '@app/store/actions';
 
 export interface SnackBarState {
   show: boolean;

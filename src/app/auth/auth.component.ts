@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 
 import { AppState } from '@app/store/app-store.module';
 import { validateNotWhitespace } from '@app/shared/utilities/validators';
-import { LoginUser, RegisterUser } from '@app/store/actions/auth.actions';
+import { LoginUser, OpenSnackBar, RegisterUser } from '@app/store/actions';
 
 @Component({
   selector: 'app-auth',

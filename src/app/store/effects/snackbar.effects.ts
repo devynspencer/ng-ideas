@@ -9,7 +9,7 @@ import {
   OpenSnackBar,
   SnackBarActionTypes,
   SnackBarPayload,
-} from '@app/store/actions/snackbar.actions';
+} from '@app/store/actions';
 
 @Injectable()
 export class SnackBarEffects {
