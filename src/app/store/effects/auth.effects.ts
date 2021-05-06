@@ -14,6 +14,7 @@ import {
 } from '@app/store/actions/auth.actions';
 import { AddError, RemoveError } from '@app/store/actions/error.actions';
 import { AppState } from '@app/store/app-store.module';
+import { OpenSnackBar } from '@app/store/actions/snackbar.actions';
 
 @Injectable()
 export class AuthEffects {
@@ -41,8 +42,14 @@ export class AuthEffects {
     tap(() => this.store.dispatch(new RemoveError())),
     mergeMap((action: LoginUser) =>
       this.authService.login(action.payload).pipe(
-        map((user) => new SetCurrentUser(user)),
-        catchError((err) => of(new AddError(err)))
+        tap(
+          (user) =>
+            new OpenSnackBar({
+              message: `Login for user: ${user.username}`,
+              action: 'Success',
+            })
+        ),
+        map((user) => new SetCurrentUser(user))
       )
     )
   );
