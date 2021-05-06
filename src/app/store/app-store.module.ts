@@ -4,8 +4,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { ActionReducerMap, StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
-import { AuthEffects } from '@app/store/effects/auth.effects';
-import { SnackBarEffects } from '@app/store/effects/snackbar.effects';
+import { AuthEffects, SnackBarEffects } from '@app/store/effects';
 import {
   authReducer,
   AuthState,
