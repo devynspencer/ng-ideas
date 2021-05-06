@@ -7,6 +7,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { errorReducer, ErrorState } from '@app/store/reducers/error.reducers';
 import { authReducer, AuthState } from '@app/store/reducers/auth.reducer';
 import { AuthEffects } from '@app/store/effects/auth.effects';
+import { SnackBarEffects } from '@app/store/effects/snackbar.effects';
 import {
   snackBarReducer,
   SnackBarState,
@@ -18,7 +19,7 @@ export interface AppState {
   snackbarState: SnackBarState;
 }
 
-export const effects = [AuthEffects];
+export const effects = [AuthEffects, SnackBarEffects];
 
 export const reducers: ActionReducerMap<AppState> = {
   auth: authReducer,
