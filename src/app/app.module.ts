@@ -13,8 +13,8 @@ import { AppStoreModule } from '@app/store/app-store.module';
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
+    AppRoutingModule,
     HttpClientModule,
     AppStoreModule,
   ],
