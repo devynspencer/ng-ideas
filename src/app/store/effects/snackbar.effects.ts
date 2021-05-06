@@ -20,7 +20,7 @@ export class SnackBarEffects {
     ofType<OpenSnackBar>(SnackBarActionTypes.OPEN_SNACKBAR),
     map((action: OpenSnackBar) => action.payload),
     tap((payload: SnackBarPayload) =>
-      this.snackBar.open(payload.action, payload.message, payload.config)
+      this.snackBar.open(payload.message, payload.action, payload.config)
     ),
     delay(2000),
     map(() => new CloseSnackBar())
