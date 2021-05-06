@@ -4,14 +4,16 @@ import { EffectsModule } from '@ngrx/effects';
 import { ActionReducerMap, StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
-import { errorReducer, ErrorState } from '@app/store/reducers/error.reducers';
-import { authReducer, AuthState } from '@app/store/reducers/auth.reducer';
 import { AuthEffects } from '@app/store/effects/auth.effects';
 import { SnackBarEffects } from '@app/store/effects/snackbar.effects';
 import {
+  authReducer,
+  AuthState,
+  errorReducer,
+  ErrorState,
   snackBarReducer,
   SnackBarState,
-} from '@app/store/reducers/snackbar.reducer';
+} from '@app/store/reducers';
 
 export interface AppState {
   auth: AuthState;
