@@ -4,7 +4,7 @@ import { Action, Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 import { catchError, mergeMap, map, tap } from 'rxjs/operators';
 
-import { AuthService } from '@app/services/auth.service';
+import { AuthService } from '@app/services';
 import {
   AuthActionTypes,
   LoginUser,

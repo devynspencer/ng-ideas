@@ -5,8 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from '@app/app-routing.module';
 import { AppComponent } from '@app/app.component';
-import { AuthService } from '@app/services/auth.service';
-import { ApiService } from '@app/services/api.service';
+import { ApiService, AuthService } from '@app/services';
 import { AppStoreModule } from '@app/store/app-store.module';
 import { AuthModule } from '@app/auth/auth.module';
 
