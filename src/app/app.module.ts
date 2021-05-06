@@ -18,10 +18,7 @@ import { AppStoreModule } from '@app/store/app-store.module';
     HttpClientModule,
     AppStoreModule,
   ],
-  providers: [
-    AuthService,
-    ApiService,
-  ],
-  bootstrap: [AppComponent]
+  providers: [AuthService, ApiService],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
