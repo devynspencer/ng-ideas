@@ -1,0 +1,24 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <a mat-button>
+      <h1>{{ toolbar.title }}</h1>
+    </a>
+    <span class="navbar-spacer"></span>
+    <div>
+      <a
+        class="navbar-button"
+        mat-button
+        *ngFor="let item of toolbar.items"
+        [routerLink]="toolbar.path"
+        >{{ item.name }}</a
+      >
+    </div>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row *ngIf="toolbar.description">
+    <span class="navbar-description">{{ toolbar.description }}</span>
+  </mat-toolbar-row>
+</mat-toolbar>
