@@ -10,9 +10,7 @@ import { ApiService } from '@app/services/api.service';
 import { AppStoreModule } from '@app/store/app-store.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -26,4 +24,4 @@ import { AppStoreModule } from '@app/store/app-store.module';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
