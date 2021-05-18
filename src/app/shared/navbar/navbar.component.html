@@ -16,6 +16,12 @@
         >{{ item.name }}</a
       >
     </div>
+
+    <a
+      mat-button
+      class="navbar-button"
+      routerLink="/auth"
+    >{{ tokenMissing ? 'Logout' : 'Login' }}</a>
   </mat-toolbar-row>
 
   <mat-toolbar-row *ngIf="toolbar.description">

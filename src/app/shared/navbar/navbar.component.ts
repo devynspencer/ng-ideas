@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { environment } from '@env/environment';
+import { AuthService } from '@app/services';
 
 export interface NavbarItemConfiguration {
   name: string;
@@ -23,13 +24,15 @@ export class NavbarComponent implements OnInit {
   toolbar = {
     title: environment.app_name,
     description: '',
-    items: [
-      { name: 'Login', path: '/auth' },
-      { name: 'Register', path: '/auth' },
-    ],
+    items: [],
   };
 
-  constructor() {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {}
+
+  tokenMissing(): boolean {
+    const token = this.authService.token;
+    return (!token || token.length === 0);
+  }
 }
