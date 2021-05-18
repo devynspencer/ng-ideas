@@ -9,7 +9,6 @@ import {
   AddError,
   AuthActionTypes,
   LoginUser,
-  OpenSnackBar,
   RegisterUser,
   RemoveError,
   SetCurrentUser,
@@ -43,13 +42,6 @@ export class AuthEffects {
     tap(() => this.store.dispatch(new RemoveError())),
     mergeMap((action: LoginUser) =>
       this.authService.login(action.payload).pipe(
-        tap(
-          (user) =>
-            new OpenSnackBar({
-              message: `Login for user: ${user.username}`,
-              action: 'Success',
-            })
-        ),
         map((user) => new SetCurrentUser(user)),
         catchError((err) => of(new AddError(err.error)))
       )
