@@ -9,8 +9,8 @@
     <span class="navbar-spacer"></span>
     <div>
       <a
-        class="navbar-button"
         mat-button
+        class="navbar-button"
         *ngFor="let item of toolbar.items"
         [routerLink]="item.path"
         >{{ item.name }}</a
