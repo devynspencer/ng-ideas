@@ -12,7 +12,7 @@
         class="navbar-button"
         mat-button
         *ngFor="let item of toolbar.items"
-        [routerLink]="toolbar.path"
+        [routerLink]="item.path"
         >{{ item.name }}</a
       >
     </div>
