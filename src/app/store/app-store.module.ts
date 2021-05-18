@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { EffectsModule } from '@ngrx/effects';
 import { ActionReducerMap, StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { routerReducer, RouterReducerState, RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
+import { routerReducer, RouterReducerState, StoreRouterConnectingModule } from '@ngrx/router-store';
 
 import { AuthEffects, SnackBarEffects } from '@app/store/effects';
 import {
