@@ -24,8 +24,8 @@ export class NavbarComponent implements OnInit {
     title: environment.app_name,
     description: '',
     items: [
-      { name: 'Login', path: '/auth/login' },
-      { name: 'Register', path: '/auth/register', icon: 'emoji_people' },
+      { name: 'Login', path: '/auth' },
+      { name: 'Register', path: '/auth' },
     ],
   };
 
