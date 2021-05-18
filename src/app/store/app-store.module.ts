@@ -14,7 +14,7 @@ import {
   snackBarReducer,
   SnackBarState,
 } from '@app/store/reducers';
-import { AppRouterState, CustomSerializer } from './reducers/router.reducer';
+import { AppRouterState, CustomSerializer } from '@app/store/reducers';
 
 export interface AppState {
   auth: AuthState;
